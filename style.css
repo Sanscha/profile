@@ -1,0 +1,398 @@
+/* --- 1. FONTS & IMPORTS --- */
+/* Import Raleway Dots (Headings) and Red Hat Display (Body) */
+@import url('https://fonts.googleapis.com/css2?family=Raleway+Dots&family=Red+Hat+Display:wght@400;500;700;900&display=swap');
+
+/* --- 2. GLOBAL VARIABLES --- */
+:root {
+    /* FONTS */
+    --font-heading: 'Raleway Dots', cursive;   /* Your new heading font */
+    --font-body: 'Red Hat Display', sans-serif; /* Your body text font */
+
+    /* COLORS (Liam Doran Theme) */
+    --bg-body: #e4e2dd;        
+    --bg-card: #f9f7f1;        
+    --bg-element: #ffffff;     
+    
+    --text-main: #1a1a1a;      
+    --text-body: #4a4a4a;      
+    --text-light: #888888;     
+    
+    --accent: #e76f51;         
+    --accent-hover: #c5533d;
+    
+    --radius: 20px;
+    --shadow: 0 4px 24px rgba(0,0,0,0.06);
+}
+
+/* --- 3. GLOBAL RESET --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-body);
+    color: var(--text-body);
+    font-family: var(--font-body); /* Apply Red Hat Display everywhere by default */
+    font-weight: 400;
+    line-height: 1.6;
+    padding-bottom: 60px;
+}
+
+/* HEADINGS SETUP - Applying Raleway Dots */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    font-weight: 400; /* Dots look best at regular weight */
+    color: var(--text-main);
+    line-height: 1.1;
+}
+
+a { text-decoration: none; color: inherit; transition: 0.3s ease; }
+ul { list-style: none; }
+img { display: block; max-width: 100%; }
+
+/* --- 4. NAVBAR --- */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 40px;
+    max-width: 1240px;
+    margin: 0 auto;
+}
+
+.logo {
+    font-family: var(--font-heading);
+    font-size: 2.2rem; /* Increased size for the dots to be legible */
+    color: var(--text-main);
+    letter-spacing: 1px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 35px;
+}
+
+.nav-links a {
+    font-family: var(--font-body); /* Keep links readable */
+    color: var(--text-main);
+    font-weight: 600;
+    font-size: 0.95rem;
+    letter-spacing: 0.5px;
+}
+
+.nav-links a:hover {
+    color: var(--accent);
+}
+
+/* --- 5. PROFILE CARD --- */
+.profile-container {
+    background-color: var(--bg-card);
+    border-radius: var(--radius);
+    padding: 45px;
+    max-width: 1240px;
+    margin: 20px auto 60px auto;
+    box-shadow: var(--shadow);
+}
+
+.profile-header {
+    margin-bottom: 45px;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    padding-bottom: 25px;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+.profile-pic {
+    width: 85px;
+    height: 85px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.user-details h1 {
+    font-size: 3.5rem; /* Dots font needs to be BIG to look good */
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 5px;
+    letter-spacing: 1px;
+}
+
+.status {
+    font-family: var(--font-body); /* Keep sans-serif for legibility */
+    font-size: 0.7rem;
+    color: var(--accent);
+    background: #fff0eb;
+    padding: 6px 14px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.location {
+    font-size: 0.95rem;
+    color: var(--text-light);
+    font-weight: 500;
+}
+
+.message-btn {
+    margin-left: auto;
+    background-color: var(--accent);
+    color: white;
+    padding: 14px 32px;
+    border-radius: 40px;
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: 0.95rem;
+}
+
+.message-btn:hover {
+    background-color: var(--accent-hover);
+    transform: translateY(-2px);
+}
+
+/* --- 6. MAIN LAYOUT & SIDEBAR --- */
+.profile-main {
+    display: grid;
+    grid-template-columns: 1.8fr 1fr;
+    gap: 40px;
+}
+
+.large-profile-image {
+    width: 100%;
+    height: 100%;
+    min-height: 450px;
+    object-fit: cover;
+    border-radius: var(--radius);
+}
+
+.profile-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.overview, .clients, .biography {
+    background-color: var(--bg-element);
+    padding: 30px;
+    border-radius: 16px;
+}
+
+.profile-sidebar h2 {
+    font-family: var(--font-body); /* Sidebar headers easier to read in sans-serif */
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    color: var(--text-light);
+    letter-spacing: 2px;
+    font-weight: 900;
+    margin-bottom: 20px;
+}
+
+.tags span, .client-list span {
+    display: inline-block;
+    background-color: #f2f2f2;
+    color: var(--text-main);
+    padding: 8px 16px;
+    border-radius: 30px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-right: 8px;
+    margin-bottom: 8px;
+}
+
+.biography p {
+    font-size: 1rem;
+    color: var(--text-body);
+    line-height: 1.7;
+}
+
+/* --- 7. FOOTER & LINKS --- */
+.profile-footer {
+    margin-top: 50px;
+    padding-top: 25px;
+    border-top: 1px solid rgba(0,0,0,0.05);
+    display: flex;
+    align-items: center;
+    color: var(--text-light);
+    font-weight: 500;
+}
+
+.social-links {
+    margin-left: 20px;
+    display: flex;
+    gap: 25px;
+}
+
+.social-links a {
+    font-family: var(--font-heading);
+    font-size: 1.6rem; /* Larger for dots */
+    color: var(--text-main);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    letter-spacing: 1px;
+}
+
+.social-links span {
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    color: var(--text-light);
+    background: #eee;
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+
+/* --- 8. PROJECTS & SKILLS --- */
+.section {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 60px 40px;
+}
+
+.section-title {
+    font-size: 4rem; /* HUGE size for Raleway Dots */
+    margin-bottom: 40px;
+    padding-left: 0;
+    border: none;
+    color: var(--text-main);
+}
+
+.skills-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.skill-card {
+    background: var(--bg-card);
+    padding: 18px 30px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 700;
+    color: var(--text-main);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+}
+
+.skill-card i { color: var(--accent); font-size: 1.2rem; }
+
+/* PROJECTS */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+}
+
+.project-card {
+    background: var(--bg-card);
+    border-radius: var(--radius);
+    overflow: hidden;
+    transition: all 0.4s ease;
+    box-shadow: var(--shadow);
+    border: 1px solid rgba(0,0,0,0.02);
+}
+
+.project-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+}
+
+.card-image {
+    height: 240px;
+    background-color: #ddd;
+}
+
+.card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card-info { padding: 30px; }
+
+.card-info h3 {
+    font-size: 2.2rem; /* Dots need to be larger to be clear */
+    margin-bottom: 12px;
+    letter-spacing: 1px;
+}
+
+.card-info p {
+    font-size: 0.95rem;
+    color: var(--text-body);
+    margin-bottom: 25px;
+}
+
+.card-links a {
+    color: var(--accent);
+    font-family: var(--font-body);
+    font-weight: 800;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-right: 20px;
+}
+
+.card-links a:hover { color: var(--text-main); }
+
+/* --- 9. CONTACT --- */
+.contact-section {
+    text-align: center;
+    background: var(--bg-card);
+    border-radius: var(--radius);
+    padding: 80px 40px;
+    margin-bottom: 80px;
+}
+
+.contact-section p {
+    max-width: 600px;
+    margin: 20px auto 40px auto;
+    font-size: 1.1rem;
+}
+
+.primary-btn {
+    background-color: var(--accent);
+    color: white;
+    padding: 16px 36px;
+    border-radius: 50px;
+    font-weight: 800;
+    font-family: var(--font-body);
+    display: inline-block;
+    box-shadow: 0 4px 15px rgba(231, 111, 81, 0.4);
+}
+
+.primary-btn:hover {
+    background-color: var(--accent-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(231, 111, 81, 0.6);
+}
+
+footer {
+    text-align: center;
+    padding: 40px;
+    color: var(--text-light);
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+/* --- 10. MOBILE --- */
+@media (max-width: 768px) {
+    .profile-main { grid-template-columns: 1fr; }
+    .large-profile-image { min-height: 280px; }
+    .user-info { flex-direction: column; text-align: center; }
+    .message-btn { margin-left: 0; width: 100%; text-align: center; }
+    .navbar { flex-direction: column; gap: 20px; }
+    .nav-links { gap: 20px; flex-wrap: wrap; justify-content: center; }
+    
+    /* Adjust huge font size for mobile */
+    .section-title { font-size: 2.5rem; }
+    .user-details h1 { font-size: 2rem; }
+}
